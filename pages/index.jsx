@@ -16,11 +16,11 @@ const SignIn = () => {
                 <div className="h-max w-full">
                   <div className="h-max w-full">
                     <label htmlFor="username" className="text-accent text-semibold mb-3">Email or Username</label>
-                      <input type="text" id="username" className="h-[40px] w-full px-2 rounded outline-none border border-grey mb-3" placeholder="New Password" />
+                      <input type="text" id="username" className="h-[40px] w-full px-2 rounded outline-none border border-grey mb-3" placeholder="" />
                   </div>
                   <div className="">
                       <label htmlFor="password" className="text-accent text-semibold mb-3">Password</label>
-                      <input type="password" id="password" className="h-[40px] w-full px-2 rounded outline-none border border-grey" placeholder="Confirm Password" />
+                      <input type="password" id="password" className="h-[40px] w-full px-2 rounded outline-none border border-grey" placeholder="" />
                   </div>
                 </div>
                 <div className="text-accent mt-2">
@@ -29,7 +29,7 @@ const SignIn = () => {
                 <div className="py-5 w-full">
                     <button type="submit" className="py-2 px-2 bg-green-500 rounded text-accent">Sign In</button>
                 </div>
-                <Link href={"/"} className="text-grey underline hover:text-accent transition-all duration-300">Forget Password?</Link>
+                <Link href={"/reset-password"} className="text-grey underline hover:text-accent transition-all duration-300">Forget Password?</Link>
             </form>
         </div>
     </section>
