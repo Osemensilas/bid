@@ -187,7 +187,7 @@ const Layout = ({children}) => {
                             ${currentPath === "/sell-bid" ? "bg-neutralDark text-accent" : ""}
                             `}>
                             <Link onClick={linkClicked} href={"/sell-bid"} className="h-full w-full flex items-center">
-                                <i className={`fa fa-arrow-down text-neutralDark group-hover:text-accent mr-2 transition-all duration-300
+                                <i className={`fa fa-arrow-down group-hover:text-accent mr-2 transition-all duration-300
                                     ${currentPath === "/sell-bid" ? "text-accent" : "text-neutralDark"}
                                     `}></i>
                                 <span className={`group-hover:text-accent transition-all duration-300
