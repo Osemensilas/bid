@@ -259,7 +259,7 @@ const Layout = ({children}) => {
                     </ul>
                 </nav>
             </div>
-            <main className="w-[90%] sm:w-[95%] h-full overflow-y-scroll">
+            <main className="w-[90%] sm:w-[95%] h-full overflow-y-scroll overflow-x-hidden">
                 {children}
             </main>
         </div>
