@@ -11,7 +11,7 @@ const BuyBids = () => {
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/favicon.ico" />
         </Head>
-        <section id="dashboard" className="h-full w-[90%] sm:w-full px-2 sm:px-10">
+        <section id="dashboard" className="h-full w-full sm:w-full px-2 sm:px-10">
             <header className="h-20 w-full flex items-center justify-start">
                 <h2 className="text-accent font-bold text-3xl">Buy Bid</h2>
             </header>

@@ -28,11 +28,11 @@ export default function Home() {
             <Link href="/" className="py-2 px-3 text-accent rounded bg-neutralDark">Auction Forum</Link>
           </div>
           <div className="h-max w-full flex items-center justify-between py-3">
-            <div className="h-[200px] w-[48%] rounded bg-accent p-10">
+            <div className="h-[200px] w-[48%] rounded bg-accent p-2 sm:p-10">
               <p className="text-base text-offBlack mb-2">Locked Vault</p>
               <h2 className="text-2xl font-bold text-offBlack">₦300,000</h2>
             </div>
-            <div className="h-[200px] w-[48%] rounded bg-accent p-10">
+            <div className="h-[200px] w-[48%] rounded bg-accent p-2 sm:p-10">
               <p className="text-base text-offBlack mb-2">Sellable Vault</p>
               <h2 className="text-2xl font-bold text-offBlack mb-3">₦5,000</h2>
               <Link href={"/"} className="py-2 px-3 text-accent rounded bg-neutralDark mt-10">Sell</Link>
