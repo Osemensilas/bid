@@ -1,10 +1,12 @@
-import Header from "./Header";
-import Footer from "./Footer";
 import Head from "next/head";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
 const Layout = ({children}) => {
+
+    const router = useRouter();
+    const currentPath = router.pathname;
 
     const [userNav, setUserNav] = useState(true);
     const [linkTouched, setLinkTouched] = useState(false);
@@ -142,67 +144,107 @@ const Layout = ({children}) => {
                 `}>
                 <nav className="h-max w-full">
                     <ul className="h-max w-full">
-                        <li className="h-12 w-full hover:bg-neutralDark px-[10px] flex items-center group cursor-pointer transition-all duration-300 rounded">
+                        <li className={`h-12 w-full hover:bg-neutralDark px-[10px] flex items-center group cursor-pointer transition-all duration-300 rounded
+                            ${currentPath === "/dashboard" ? "bg-neutralDark text-accent" : ""}
+                            `}>
                             <Link onClick={linkClicked} href={"/dashboard"} className="h-full w-full flex items-center">
-                                <i className="fa fa-dashboard text-neutralDark group-hover:text-accent mr-2 transition-all duration-300"></i>
-                                <span className={`text-neutralDark group-hover:text-accent transition-all duration-300
+                                <i className={`fa fa-dashboard group-hover:text-accent mr-2 transition-all duration-300
+                                    ${currentPath === "/dashboard" ? "text-accent" : "text-neutralDark"}
+                                    `}></i>
+                                <span className={`group-hover:text-accent transition-all duration-300
                                     ${userNav ? "sm:block hidden transition-all duration-300" : "sm:hidden block transition-all duration-300"}
+                                    ${currentPath === "/dashboard" ? "text-accent" : "text-neutralDark"}
                                     `}>Dashboard</span>
                             </Link>
                         </li>
-                        <li className="h-12 w-full hover:bg-neutralDark px-[10px] flex items-center group cursor-pointer transition-all duration-300 rounded">
+                        <li className={`h-12 w-full hover:bg-neutralDark px-[10px] flex items-center group cursor-pointer transition-all duration-300 rounded
+                            ${currentPath === "/lobby" ? "bg-neutralDark text-accent" : ""}
+                            `}>
                             <Link onClick={linkClicked} href={"/lobby"} className="h-full w-full flex items-center">
-                                <i className="fa fa-briefcase text-neutralDark group-hover:text-accent mr-2 transition-all duration-300"></i>
-                                <span className={`text-neutralDark group-hover:text-accent transition-all duration-300
+                                <i className={`fa fa-briefcase group-hover:text-accent mr-2 transition-all duration-300
+                                    ${currentPath === "/lobby" ? "text-accent" : "text-neutralDark"}
+                                    `}></i>
+                                <span className={`group-hover:text-accent transition-all duration-300
                                     ${userNav ? "sm:block hidden transition-all duration-300" : "sm:hidden block transition-all duration-300"}
+                                    ${currentPath === "/lobby" ? "text-accent" : "text-neutralDark"}
                                     `}>Action Forum</span>
                             </Link>
                         </li>
-                        <li className="h-12 w-full hover:bg-neutralDark px-[10px] flex items-center group cursor-pointer transition-all duration-300 rounded">
+                        <li className={`h-12 w-full hover:bg-neutralDark px-[10px] flex items-center group cursor-pointer transition-all duration-300 rounded
+                            ${currentPath === "/buy-bid" ? "bg-neutralDark text-accent" : ""}
+                            `}>
                             <Link onClick={linkClicked} href={"/buy-bid"} className="h-full w-full flex items-center">
-                                <i className="fa fa-arrow-up text-neutralDark group-hover:text-accent mr-2 transition-all duration-300"></i>
-                                <span className={`text-neutralDark group-hover:text-accent transition-all duration-300
+                                <i className={`fa fa-arrow-up group-hover:text-accent mr-2 transition-all duration-300
+                                    ${currentPath === "/buy-bid" ? "text-accent" : "text-neutralDark"}
+                                    `}></i>
+                                <span className={`group-hover:text-accent transition-all duration-300
                                     ${userNav ? "sm:block hidden transition-all duration-300" : "sm:hidden block transition-all duration-300"}
+                                    ${currentPath === "/buy-bid" ? "text-accent" : "text-neutralDark"}
                                     `}>Buy Bid</span>
                             </Link>
                         </li>
-                        <li className="h-12 w-full hover:bg-neutralDark px-[10px] flex items-center group cursor-pointer transition-all duration-300 rounded">
+                        <li className={`h-12 w-full hover:bg-neutralDark px-[10px] flex items-center group cursor-pointer transition-all duration-300 rounded
+                            ${currentPath === "/sell-bid" ? "bg-neutralDark text-accent" : ""}
+                            `}>
                             <Link onClick={linkClicked} href={"/sell-bid"} className="h-full w-full flex items-center">
-                                <i className="fa fa-arrow-down text-neutralDark group-hover:text-accent mr-2 transition-all duration-300"></i>
-                                <span className={`text-neutralDark group-hover:text-accent transition-all duration-300
+                                <i className={`fa fa-arrow-down text-neutralDark group-hover:text-accent mr-2 transition-all duration-300
+                                    ${currentPath === "/sell-bid" ? "text-accent" : "text-neutralDark"}
+                                    `}></i>
+                                <span className={`group-hover:text-accent transition-all duration-300
                                     ${userNav ? "sm:block hidden transition-all duration-300" : "sm:hidden block transition-all duration-300"}
+                                    ${currentPath === "/sell-bid" ? "text-accent" : "text-neutralDark"}
                                     `}>Sell Bid</span>
                             </Link>
                         </li>
-                        <li className="h-12 w-full hover:bg-neutralDark px-[10px] flex items-center group cursor-pointer transition-all duration-300 rounded">
+                        <li className={`h-12 w-full hover:bg-neutralDark px-[10px] flex items-center group cursor-pointer transition-all duration-300 rounded
+                            ${currentPath === "/transaction" ? "bg-neutralDark text-accent" : ""}
+                            `}>
                             <Link onClick={linkClicked} href={"/transaction"} className="h-full w-full flex items-center">
-                                <i className="fa fa-exchange text-neutralDark group-hover:text-accent mr-2 transition-all duration-300"></i>
-                                <span className={`text-neutralDark group-hover:text-accent transition-all duration-300
+                                <i className={`fa fa-exchange group-hover:text-accent mr-2 transition-all duration-300
+                                    ${currentPath === "/transaction" ? "text-accent" : "text-neutralDark"}
+                                    `}></i>
+                                <span className={`group-hover:text-accent transition-all duration-300
                                     ${userNav ? "sm:block hidden transition-all duration-300" : "sm:hidden block transition-all duration-300"}
+                                    ${currentPath === "/transaction" ? "text-accent" : "text-neutralDark"}
                                     `}>Transaction</span>
                             </Link>
                         </li>
-                        <li className="h-12 w-full hover:bg-neutralDark px-[10px] flex items-center group cursor-pointer transition-all duration-300 rounded">
+                        <li className={`h-12 w-full hover:bg-neutralDark px-[10px] flex items-center group cursor-pointer transition-all duration-300 rounded
+                            ${currentPath === "/affiliate" ? "bg-neutralDark text-accent" : ""}
+                            `}>
                             <Link onClick={linkClicked} href={"/affiliate"} className="h-full w-full flex items-center">
-                                <i className="fa fa-link text-neutralDark group-hover:text-accent mr-2 transition-all duration-300"></i>
-                                <span className={`text-neutralDark group-hover:text-accent transition-all duration-300
+                                <i className={`fa fa-link group-hover:text-accent mr-2 transition-all duration-300
+                                    ${currentPath === "/affiliate" ? "text-accent" : "text-neutralDark"}
+                                    `}></i>
+                                <span className={`group-hover:text-accent transition-all duration-300
                                     ${userNav ? "sm:block hidden transition-all duration-300" : "sm:hidden block transition-all duration-300"}
+                                    ${currentPath === "/affiliate" ? "text-accent" : "text-neutralDark"}
                                     `}>Affiliate</span>
                             </Link>
                         </li>
-                        <li className="h-12 w-full hover:bg-neutralDark px-[10px] flex items-center group cursor-pointer transition-all duration-300 rounded">
+                        <li className={`h-12 w-full hover:bg-neutralDark px-[10px] flex items-center group cursor-pointer transition-all duration-300 rounded
+                            ${currentPath === "/change-password" ? "bg-neutralDark text-accent" : ""}
+                            `}>
                             <Link onClick={linkClicked} href={"/change-password"} className="h-full w-full flex items-center">
-                                <i className="fa fa-lock text-neutralDark group-hover:text-accent mr-2 transition-all duration-300"></i>
-                                <span className={`text-neutralDark group-hover:text-accent transition-all duration-300
+                                <i className={`fa fa-lock group-hover:text-accent mr-2 transition-all duration-300
+                                    ${currentPath === "/change-password" ? "text-accent" : "text-neutralDark"}
+                                    `}></i>
+                                <span className={`group-hover:text-accent transition-all duration-300
                                     ${userNav ? "sm:block hidden transition-all duration-300" : "sm:hidden block transition-all duration-300"}
+                                    ${currentPath === "/change-password" ? "text-accent" : "text-neutralDark"}
                                     `}>Password</span>
                             </Link>
                         </li>
-                        <li className="h-12 w-full hover:bg-neutralDark px-[10px] flex items-center group cursor-pointer transition-all duration-300 rounded">
-                            <Link onClick={linkClicked} href={"/"} className="h-full w-full flex items-center">
-                                <i className="fa fa-support text-neutralDark group-hover:text-accent mr-2 transition-all duration-300"></i>
-                                <span className={`text-neutralDark group-hover:text-accent transition-all duration-300
+                        <li className={`h-12 w-full hover:bg-neutralDark px-[10px] flex items-center group cursor-pointer transition-all duration-300 rounded
+                            ${currentPath === "/support" ? "bg-neutralDark text-accent" : ""}
+                            `}>
+                            <Link onClick={linkClicked} href={"/support"} className="h-full w-full flex items-center">
+                                <i className={`fa fa-support group-hover:text-accent mr-2 transition-all duration-300
+                                    ${currentPath === "/support" ? "text-accent" : "text-neutralDark"}
+                                    `}></i>
+                                <span className={`group-hover:text-accent transition-all duration-300
                                     ${userNav ? "sm:block hidden transition-all duration-300" : "sm:hidden block transition-all duration-300"}
+                                    ${currentPath === "/support" ? "text-accent" : "text-neutralDark"}
                                     `}>Support</span>
                             </Link>
                         </li>
@@ -221,7 +263,6 @@ const Layout = ({children}) => {
                 {children}
             </main>
         </div>
-        <Footer/>
         </>
      );
 }
