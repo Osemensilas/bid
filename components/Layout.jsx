@@ -116,7 +116,7 @@ const Layout = ({children}) => {
                                     <span className="text-sm text-grey group-hover:text-accent transition-all duration-300">Password</span>
                                 </Link>
                                 <div className="h-max w-full py-1 border-t-2 flex">
-                                    <Link href={"/"} className="h-max w-full bg-transparent hover:bg-grey px-2 py-1 group">
+                                    <Link onClick={linkClicked} href={"/"} className="h-max w-full bg-transparent hover:bg-grey px-2 py-1 group">
                                         <i className="fa fa-sign-out text-grey mr-2 text-base group-hover:text-accent transition-all duration-300"></i>
                                         <span className="text-sm text-grey group-hover:text-accent transition-all duration-300">Sign Out</span>
                                     </Link>
@@ -127,7 +127,7 @@ const Layout = ({children}) => {
                     <div id="user-absent" className={`h-max w-max
                         ${userHeader ? "hidden" : ""}
                         `}>
-                        <Link href={"/"} className="group">
+                        <Link onClick={linkClicked} href={"/"} className="group">
                             <i className="fa fa-user text-accent text-2xl"></i>   
                             <span className="ml-2 text-accent">Sign In</span>
                         </Link>
