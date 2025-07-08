@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 const Layout = ({children}) => {
 
     const [userNav, setUserNav] = useState(true);
+    const [linkTouched, setLinkTouched] = useState(false);
 
     const hamClicked = () => {
         if (userNav === true){
@@ -14,6 +15,11 @@ const Layout = ({children}) => {
         }else{
             setUserNav(true);
         }
+        setLinkTouched(false);
+    }
+
+    const linkClicked = () => {
+        setLinkTouched(true);
     }
 
     useEffect(() => {
@@ -22,7 +28,11 @@ const Layout = ({children}) => {
         }else{
             setUserNav(false);
         }
-    },[userNav])
+
+        if (linkTouched === true){
+            setUserNav(true);
+        }
+    },[userNav, linkTouched])
 
     const [user, setUser] = useState(false);
     const [userFolder, setUserFolder] = useState(false);
@@ -133,7 +143,7 @@ const Layout = ({children}) => {
                 <nav className="h-max w-full">
                     <ul className="h-max w-full">
                         <li className="h-12 w-full hover:bg-neutralDark px-[10px] flex items-center group cursor-pointer transition-all duration-300 rounded">
-                            <Link href={"/dashboard"} className="h-full w-full flex items-center">
+                            <Link onClick={linkClicked} href={"/dashboard"} className="h-full w-full flex items-center">
                                 <i className="fa fa-dashboard text-neutralDark group-hover:text-accent mr-2 transition-all duration-300"></i>
                                 <span className={`text-neutralDark group-hover:text-accent transition-all duration-300
                                     ${userNav ? "sm:block hidden transition-all duration-300" : "sm:hidden block transition-all duration-300"}
@@ -141,7 +151,7 @@ const Layout = ({children}) => {
                             </Link>
                         </li>
                         <li className="h-12 w-full hover:bg-neutralDark px-[10px] flex items-center group cursor-pointer transition-all duration-300 rounded">
-                            <Link href={"/lobby"} className="h-full w-full flex items-center">
+                            <Link onClick={linkClicked} href={"/lobby"} className="h-full w-full flex items-center">
                                 <i className="fa fa-briefcase text-neutralDark group-hover:text-accent mr-2 transition-all duration-300"></i>
                                 <span className={`text-neutralDark group-hover:text-accent transition-all duration-300
                                     ${userNav ? "sm:block hidden transition-all duration-300" : "sm:hidden block transition-all duration-300"}
@@ -149,7 +159,7 @@ const Layout = ({children}) => {
                             </Link>
                         </li>
                         <li className="h-12 w-full hover:bg-neutralDark px-[10px] flex items-center group cursor-pointer transition-all duration-300 rounded">
-                            <Link href={"/buy-bid"} className="h-full w-full flex items-center">
+                            <Link onClick={linkClicked} href={"/buy-bid"} className="h-full w-full flex items-center">
                                 <i className="fa fa-arrow-up text-neutralDark group-hover:text-accent mr-2 transition-all duration-300"></i>
                                 <span className={`text-neutralDark group-hover:text-accent transition-all duration-300
                                     ${userNav ? "sm:block hidden transition-all duration-300" : "sm:hidden block transition-all duration-300"}
@@ -157,7 +167,7 @@ const Layout = ({children}) => {
                             </Link>
                         </li>
                         <li className="h-12 w-full hover:bg-neutralDark px-[10px] flex items-center group cursor-pointer transition-all duration-300 rounded">
-                            <Link href={"/sell-bid"} className="h-full w-full flex items-center">
+                            <Link onClick={linkClicked} href={"/sell-bid"} className="h-full w-full flex items-center">
                                 <i className="fa fa-arrow-down text-neutralDark group-hover:text-accent mr-2 transition-all duration-300"></i>
                                 <span className={`text-neutralDark group-hover:text-accent transition-all duration-300
                                     ${userNav ? "sm:block hidden transition-all duration-300" : "sm:hidden block transition-all duration-300"}
@@ -165,7 +175,7 @@ const Layout = ({children}) => {
                             </Link>
                         </li>
                         <li className="h-12 w-full hover:bg-neutralDark px-[10px] flex items-center group cursor-pointer transition-all duration-300 rounded">
-                            <Link href={"/transaction"} className="h-full w-full flex items-center">
+                            <Link onClick={linkClicked} href={"/transaction"} className="h-full w-full flex items-center">
                                 <i className="fa fa-exchange text-neutralDark group-hover:text-accent mr-2 transition-all duration-300"></i>
                                 <span className={`text-neutralDark group-hover:text-accent transition-all duration-300
                                     ${userNav ? "sm:block hidden transition-all duration-300" : "sm:hidden block transition-all duration-300"}
@@ -173,7 +183,7 @@ const Layout = ({children}) => {
                             </Link>
                         </li>
                         <li className="h-12 w-full hover:bg-neutralDark px-[10px] flex items-center group cursor-pointer transition-all duration-300 rounded">
-                            <Link href={"/affiliate"} className="h-full w-full flex items-center">
+                            <Link onClick={linkClicked} href={"/affiliate"} className="h-full w-full flex items-center">
                                 <i className="fa fa-link text-neutralDark group-hover:text-accent mr-2 transition-all duration-300"></i>
                                 <span className={`text-neutralDark group-hover:text-accent transition-all duration-300
                                     ${userNav ? "sm:block hidden transition-all duration-300" : "sm:hidden block transition-all duration-300"}
@@ -181,7 +191,7 @@ const Layout = ({children}) => {
                             </Link>
                         </li>
                         <li className="h-12 w-full hover:bg-neutralDark px-[10px] flex items-center group cursor-pointer transition-all duration-300 rounded">
-                            <Link href={"/change-password"} className="h-full w-full flex items-center">
+                            <Link onClick={linkClicked} href={"/change-password"} className="h-full w-full flex items-center">
                                 <i className="fa fa-lock text-neutralDark group-hover:text-accent mr-2 transition-all duration-300"></i>
                                 <span className={`text-neutralDark group-hover:text-accent transition-all duration-300
                                     ${userNav ? "sm:block hidden transition-all duration-300" : "sm:hidden block transition-all duration-300"}
@@ -189,7 +199,7 @@ const Layout = ({children}) => {
                             </Link>
                         </li>
                         <li className="h-12 w-full hover:bg-neutralDark px-[10px] flex items-center group cursor-pointer transition-all duration-300 rounded">
-                            <Link href={"/"} className="h-full w-full flex items-center">
+                            <Link onClick={linkClicked} href={"/"} className="h-full w-full flex items-center">
                                 <i className="fa fa-support text-neutralDark group-hover:text-accent mr-2 transition-all duration-300"></i>
                                 <span className={`text-neutralDark group-hover:text-accent transition-all duration-300
                                     ${userNav ? "sm:block hidden transition-all duration-300" : "sm:hidden block transition-all duration-300"}
@@ -197,7 +207,7 @@ const Layout = ({children}) => {
                             </Link>
                         </li>
                         <li className="h-12 w-full hover:bg-neutralDark px-[10px] flex items-center group cursor-pointer transition-all duration-300 rounded">
-                            <Link href={"/"} className="h-full w-full flex items-center">
+                            <Link onClick={linkClicked} href={"/"} className="h-full w-full flex items-center">
                                 <i className="fa fa-sign-out text-neutralDark group-hover:text-accent mr-2 transition-all duration-300"></i>
                                 <span className={`text-neutralDark group-hover:text-accent transition-all duration-300
                                     ${userNav ? "sm:block hidden transition-all duration-300" : "sm:hidden block transition-all duration-300"}

@@ -1,7 +1,7 @@
 const Affiliate = () => {
     return ( 
         <>
-        <section id="dashboard" className="h-full w-full px-2 sm:px-10">
+        <section id="dashboard" className="h-full w-[90%] sm:w-full px-2 sm:px-10">
             <header className="h-20 w-full flex items-center justify-start">
                 <h2 className="text-accent font-bold text-3xl">Affiliate</h2>
             </header>
